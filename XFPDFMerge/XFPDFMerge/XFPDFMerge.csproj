@@ -39,6 +39,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\AsyncRelayCommand.cs" />
+    <Compile Include="Common\Helpers.cs" />
     <Compile Include="Entities\FileEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />

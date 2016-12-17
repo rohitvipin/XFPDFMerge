@@ -17,7 +17,7 @@ namespace XFPDFMerge.Entities
 
         public string FileName { get; set; }
 
-        public int Size => DataArray.Length;
+        public string DisplaySize => Helpers.ReadableFileLength(DataArray?.Length ?? 0);
 
         public byte[] DataArray { get; set; }
 

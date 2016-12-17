@@ -15,7 +15,7 @@
       </Label.Triggers>
     </Label>
 
-    <ListView VerticalOptions="FillAndExpand" ItemsSource="{Binding Files}">
+    <ListView VerticalOptions="FillAndExpand" ItemsSource="{Binding Files}" HasUnevenRows="True">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
@@ -24,7 +24,7 @@
             </ViewCell.ContextActions>
             <StackLayout Padding="10">
               <Label Text="{Binding FileName}" FontSize="Medium" />
-              <Label Text="{Binding Size, StringFormat='Size : {0}'}" FontSize="Small" />
+              <Label Text="{Binding DisplaySize, StringFormat='Size : {0}'}" FontSize="Small" />
             </StackLayout>
           </ViewCell>
         </DataTemplate>
