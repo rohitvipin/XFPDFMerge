@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFPDFMerge.Views.HomeView">
+
+  <StackLayout VerticalOptions="FillAndExpand">
+
+    <Button Text="Pick Files" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Command="{Binding PickFilesCommand}" />
+
+    <Label Text="No files loaded!" FontSize="Medium" TextColor="Red">
+      <Label.Triggers>
+        <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference MergeButton}, Path=IsEnabled}" Value="True">
+          <Setter Property="IsVisible" Value="False" />
+        </DataTrigger>
+      </Label.Triggers>
+    </Label>
+
+    <ListView VerticalOptions="FillAndExpand" ItemsSource="{Binding Files}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.ContextActions>
+              <MenuItem  Command="{Binding DeleteCommand}" CommandParameter="{Binding .}" Text="Delete" IsDestructive="True" />
+            </ViewCell.ContextActions>
+            <StackLayout Padding="10">
+              <Label Text="{Binding FileName}" FontSize="Medium" />
+              <Label Text="{Binding Size, StringFormat='Size : {0}'}" FontSize="Small" />
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+    <Button Text="Merge Files" VerticalOptions="End" HorizontalOptions="FillAndExpand" Command="{Binding MergeFilesCommand}" IsEnabled="{Binding IsFilesAvailableToMerge}" x:Name="MergeButton" />
+
+  </StackLayout>
+
+
+</ContentPage>

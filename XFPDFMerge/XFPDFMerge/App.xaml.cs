@@ -1,4 +1,6 @@
 ﻿using Xamarin.Forms;
+using XFPDFMerge.ViewModels;
+using XFPDFMerge.Views;
 
 namespace XFPDFMerge
 {
@@ -8,7 +10,7 @@ namespace XFPDFMerge
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new HomeView(new HomeViewModel());
         }
 
         protected override void OnStart()
