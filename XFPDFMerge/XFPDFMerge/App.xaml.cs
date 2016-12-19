@@ -10,7 +10,7 @@ namespace XFPDFMerge
         {
             InitializeComponent();
 
-            MainPage = new HomeView(new HomeViewModel());
+            MainPage = new NavigationPage(new HomeView(new HomeViewModel()));
         }
 
         protected override void OnStart()

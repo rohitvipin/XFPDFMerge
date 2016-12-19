@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XFPDFMerge.Views.HomeView">
+             x:Class="XFPDFMerge.Views.HomeView"
+             Title="Pdf Merger">
 
   <StackLayout VerticalOptions="FillAndExpand" Margin="2" Spacing="5">
 
@@ -15,7 +16,7 @@
       </Label.Triggers>
     </Label>
 
-    <ListView VerticalOptions="FillAndExpand" ItemsSource="{Binding Files}" HasUnevenRows="True" SelectedItem="{Binding SelectedFile}">
+    <ListView VerticalOptions="FillAndExpand" ItemsSource="{Binding Files}" HasUnevenRows="True" SelectedItem="{Binding SelectedFile, Mode=TwoWay}">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>

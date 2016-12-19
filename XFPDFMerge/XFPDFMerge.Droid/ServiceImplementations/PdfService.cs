@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net;
 using System.Threading.Tasks;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using Java.Util;
 using Xamarin.Forms;
 using XFPDFMerge.DependencyServices;
 using XFPDFMerge.Droid.Activities;
@@ -15,7 +13,6 @@ using XFPDFMerge.Entities;
 using Application = Android.App.Application;
 using Environment = Android.OS.Environment;
 using Uri = Android.Net.Uri;
-using WebView = Android.Webkit.WebView;
 
 [assembly: Dependency(typeof(PdfService))]
 namespace XFPDFMerge.Droid.ServiceImplementations
