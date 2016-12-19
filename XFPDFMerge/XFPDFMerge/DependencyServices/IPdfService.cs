@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using XFPDFMerge.Entities;
 
 namespace XFPDFMerge.DependencyServices
 {
     public interface IPdfService
     {
-        void DisplayFile(FileEntity fileEntity);
+        Task DisplayFile(FileEntity fileEntity);
 
         FileEntity MergeFiles(IList<FileEntity> pdfFiles);
     }

@@ -15,7 +15,7 @@
       </Label.Triggers>
     </Label>
 
-    <ListView VerticalOptions="FillAndExpand" ItemsSource="{Binding Files}" HasUnevenRows="True">
+    <ListView VerticalOptions="FillAndExpand" ItemsSource="{Binding Files}" HasUnevenRows="True" SelectedItem="{Binding SelectedFile}">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
