@@ -3,6 +3,7 @@ using Android.App;
 using Android.Net;
 using Android.OS;
 using Android.Webkit;
+using Xamarin.Forms.Platform.Android;
 using File = Java.IO.File;
 
 namespace XFPDFMerge.Droid.Activities
@@ -28,7 +29,9 @@ namespace XFPDFMerge.Droid.Activities
                 return;
             }
 
-            pdfWebView.Settings.AllowUniversalAccessFromFileURLs = true;
+            pdfWebView.SetWebChromeClient(new FormsWebChromeClient());
+            pdfWebView.Settings.AllowUniversalAccessFromFileURLs = pdfWebView.Settings.AllowFileAccess = pdfWebView.Settings.AllowFileAccessFromFileURLs = true;
+            pdfWebView.Settings.JavaScriptEnabled = true;
 
             using (var file = new File(Environment.ExternalStorageDirectory.AbsolutePath, Path.GetFileName(path)))
             {
