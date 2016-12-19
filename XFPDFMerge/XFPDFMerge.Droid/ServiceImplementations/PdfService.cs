@@ -8,6 +8,7 @@ using Android.Widget;
 using Xamarin.Forms;
 using XFPDFMerge.DependencyServices;
 using XFPDFMerge.Droid.Activities;
+using XFPDFMerge.Droid.Helpers;
 using XFPDFMerge.Droid.ServiceImplementations;
 using XFPDFMerge.Entities;
 using Application = Android.App.Application;
@@ -117,21 +118,7 @@ namespace XFPDFMerge.Droid.ServiceImplementations
             return "*/*";
         }
 
-        private static async Task<string> WriteToFileInStorage(FileEntity fileEntity)
-        {
-            var filePath = Path.Combine(Environment.ExternalStorageDirectory.Path, fileEntity.FileName);
-            using (var memorystream = new MemoryStream())
-            {
-                await memorystream.WriteAsync(fileEntity.DataArray, 0, fileEntity.Size);
-                memorystream.Position = 0;
 
-                using (var file = new FileStream(filePath, FileMode.Create, FileAccess.Write))
-                {
-                    memorystream.WriteTo(file);
-                }
-            }
-            return filePath;
-        }
         #endregion
 
         public async Task DisplayFile(FileEntity fileEntity)
@@ -140,7 +127,7 @@ namespace XFPDFMerge.Droid.ServiceImplementations
 
             try
             {
-                filePath = await WriteToFileInStorage(fileEntity);
+                filePath = await FileHelper.WriteToFileInStorage(fileEntity);
 
                 if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
                 {

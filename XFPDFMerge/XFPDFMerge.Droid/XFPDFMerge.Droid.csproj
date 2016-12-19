@@ -118,8 +118,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\PdfWebViewActivity.cs" />
+    <Compile Include="CustomRenderers\PdfWebViewRenderer.cs" />
     <Compile Include="Fragements\PdfRendererFragment.cs" />
     <Compile Include="Activities\PdfViewActivity.cs" />
+    <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="ServiceImplementations\PdfService.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

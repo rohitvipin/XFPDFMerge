@@ -6,6 +6,8 @@ using Xamarin.Forms;
 using XFPDFMerge.Common;
 using XFPDFMerge.DependencyServices;
 using XFPDFMerge.Entities;
+using XFPDFMerge.Services;
+using XFPDFMerge.Views;
 
 namespace XFPDFMerge.ViewModels
 {
@@ -69,11 +71,11 @@ namespace XFPDFMerge.ViewModels
 
                 if (_selectedFile != null)
                 {
-                    _pdfService.DisplayFile(_selectedFile)
-                        .ContinueWith(t =>
-                        {
-                            Device.BeginInvokeOnMainThread(() => SelectedFile = null);
-                        });
+                    Device.BeginInvokeOnMainThread(async () => await NavigationService.PushAsync(new PdfView(new PdfViewModel
+                    {
+                        PdfFile = _selectedFile,
+                        Title = _selectedFile.FileName
+                    })));
                 }
             }
         }
