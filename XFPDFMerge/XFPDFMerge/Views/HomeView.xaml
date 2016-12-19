@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XFPDFMerge.Views.HomeView">
 
-  <StackLayout VerticalOptions="FillAndExpand">
+  <StackLayout VerticalOptions="FillAndExpand" Margin="2" Spacing="5">
 
     <Button Text="Pick Files" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Command="{Binding PickFilesCommand}" />
 
-    <Label Text="No files loaded!" FontSize="Medium" TextColor="Red">
+    <Label Text="No files loaded!" FontSize="Medium" TextColor="Red" Margin="15">
       <Label.Triggers>
         <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference MergeButton}, Path=IsEnabled}" Value="True">
           <Setter Property="IsVisible" Value="False" />
