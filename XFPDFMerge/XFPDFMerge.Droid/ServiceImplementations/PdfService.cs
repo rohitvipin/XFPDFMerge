@@ -12,7 +12,6 @@ using XFPDFMerge.Droid.Helpers;
 using XFPDFMerge.Droid.ServiceImplementations;
 using XFPDFMerge.Entities;
 using Application = Android.App.Application;
-using Environment = Android.OS.Environment;
 using Uri = Android.Net.Uri;
 
 [assembly: Dependency(typeof(PdfService))]
@@ -32,7 +31,7 @@ namespace XFPDFMerge.Droid.ServiceImplementations
 
         private static void OpenFileExternalApp(string filePath)
         {
-            Intent intent = new Intent(Intent.ActionView);
+            var intent = new Intent(Intent.ActionView);
             intent.SetDataAndType(Uri.Parse($"file:///{filePath}"), GetFileType(Path.GetExtension(filePath)));
             intent.SetFlags(ActivityFlags.NewTask);
             Application.Context.StartActivity(intent);
@@ -127,7 +126,7 @@ namespace XFPDFMerge.Droid.ServiceImplementations
 
             try
             {
-                filePath = await FileHelper.WriteToFileInStorage(fileEntity);
+                filePath = await FileHelper.CopyFileToStorage(fileEntity);
 
                 if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
                 {

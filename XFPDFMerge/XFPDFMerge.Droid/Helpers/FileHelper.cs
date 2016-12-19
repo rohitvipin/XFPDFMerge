@@ -7,7 +7,7 @@ namespace XFPDFMerge.Droid.Helpers
 {
     public static class FileHelper
     {
-        public static async Task<string> WriteToFileInStorage(FileEntity fileEntity)
+        public static async Task<string> CopyFileToStorage(FileEntity fileEntity)
         {
             var filePath = Path.Combine(Environment.ExternalStorageDirectory.Path, fileEntity.FileName);
             using (var memorystream = new MemoryStream())

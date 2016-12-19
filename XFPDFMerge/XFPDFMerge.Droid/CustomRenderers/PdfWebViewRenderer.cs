@@ -28,7 +28,7 @@ namespace XFPDFMerge.Droid.CustomRenderers
                 return;
             }
 
-            var filePath = await FileHelper.WriteToFileInStorage(pdfFile);
+            var filePath = await FileHelper.CopyFileToStorage(pdfFile);
 
             if (string.IsNullOrWhiteSpace(filePath))
             {
