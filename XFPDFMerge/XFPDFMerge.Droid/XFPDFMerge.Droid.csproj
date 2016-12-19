@@ -117,10 +117,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PdfRendererFragment.cs" />
-    <Compile Include="PdfViewActivity.cs" />
+    <Compile Include="Activities\PdfWebViewActivity.cs" />
+    <Compile Include="Fragements\PdfRendererFragment.cs" />
+    <Compile Include="Activities\PdfViewActivity.cs" />
     <Compile Include="ServiceImplementations\PdfService.cs" />
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -132,6 +133,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_main_real.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\pdfInWebView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

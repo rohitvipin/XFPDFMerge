@@ -69,8 +69,11 @@ namespace XFPDFMerge.ViewModels
 
                 if (_selectedFile != null)
                 {
-                    _pdfService.DisplayFile(_selectedFile);
-                    SelectedFile = null;
+                    _pdfService.DisplayFile(_selectedFile)
+                        .ContinueWith(t =>
+                        {
+                            Device.BeginInvokeOnMainThread(() => SelectedFile = null);
+                        });
                 }
             }
         }

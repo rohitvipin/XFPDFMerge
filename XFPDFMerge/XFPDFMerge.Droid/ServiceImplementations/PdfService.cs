@@ -1,43 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Threading.Tasks;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
+using Java.Util;
 using Xamarin.Forms;
 using XFPDFMerge.DependencyServices;
+using XFPDFMerge.Droid.Activities;
 using XFPDFMerge.Droid.ServiceImplementations;
 using XFPDFMerge.Entities;
 using Application = Android.App.Application;
 using Environment = Android.OS.Environment;
 using Uri = Android.Net.Uri;
+using WebView = Android.Webkit.WebView;
 
 [assembly: Dependency(typeof(PdfService))]
 namespace XFPDFMerge.Droid.ServiceImplementations
 {
     public class PdfService : IPdfService
     {
-        public async Task DisplayFile(FileEntity fileEntity)
-        {
-            try
-            {
-                var filePath = await WriteToFileInStorage(fileEntity);
-
-                if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
-                {
-                    OpenInPdfRenderer(filePath);
-                }
-                else
-                {
-                    OpenFileExternalApp(filePath);
-                }
-            }
-            catch (Exception)
-            {
-                Toast.MakeText(Application.Context, "Can't open file", ToastLength.Long);
-            }
-        }
+        #region Private Methods
 
         private static void OpenInPdfRenderer(string filePath)
         {
@@ -53,6 +38,21 @@ namespace XFPDFMerge.Droid.ServiceImplementations
             intent.SetDataAndType(Uri.Parse($"file:///{filePath}"), GetFileType(Path.GetExtension(filePath)));
             intent.SetFlags(ActivityFlags.NewTask);
             Application.Context.StartActivity(intent);
+        }
+
+        private static void OpenInWebView(string filePath)
+        {
+            try
+            {
+                var intent = new Intent(Application.Context, typeof(PdfWebViewActivity));
+                intent.PutExtra("filePath", filePath);
+                intent.AddFlags(ActivityFlags.NewTask);
+                Application.Context.StartActivity(intent);
+            }
+            catch (Exception)
+            {
+                Toast.MakeText(Application.Context, "Can't open file", ToastLength.Long);
+            }
         }
 
         private static string GetFileType(string extension)
@@ -134,6 +134,37 @@ namespace XFPDFMerge.Droid.ServiceImplementations
                 }
             }
             return filePath;
+        }
+        #endregion
+
+        public async Task DisplayFile(FileEntity fileEntity)
+        {
+            string filePath = null;
+
+            try
+            {
+                filePath = await WriteToFileInStorage(fileEntity);
+
+                if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
+                {
+                    OpenInPdfRenderer(filePath);
+                }
+                else
+                {
+                    OpenFileExternalApp(filePath);
+                }
+            }
+            catch (Exception)
+            {
+                if (string.IsNullOrWhiteSpace(filePath))
+                {
+                    Toast.MakeText(Application.Context, "Unable to generate file", ToastLength.Long);
+                }
+                else
+                {
+                    OpenInWebView(filePath);
+                }
+            }
         }
 
         public FileEntity MergeFiles(IList<FileEntity> pdfFiles)

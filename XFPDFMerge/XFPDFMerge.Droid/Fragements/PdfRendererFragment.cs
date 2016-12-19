@@ -8,7 +8,7 @@ using Android.Views;
 using Android.Widget;
 using Java.IO;
 
-namespace XFPDFMerge.Droid
+namespace XFPDFMerge.Droid.Fragements
 {
     public class PdfRendererFragment : Fragment
     {

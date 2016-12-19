@@ -1,7 +1,8 @@
 ﻿using Android.App;
 using Android.OS;
+using XFPDFMerge.Droid.Fragements;
 
-namespace XFPDFMerge.Droid
+namespace XFPDFMerge.Droid.Activities
 {
     public class PdfViewActivity : Activity
     {

@@ -2519,6 +2519,9 @@ namespace XFPDFMerge.Droid
 			// aapt resource value: 0x7f070046
 			public const int parentPanel = 2131165254;
 			
+			// aapt resource value: 0x7f07009b
+			public const int pdfWebView = 2131165339;
+			
 			// aapt resource value: 0x7f070029
 			public const int pin = 2131165225;
 			
@@ -2600,8 +2603,8 @@ namespace XFPDFMerge.Droid
 			// aapt resource value: 0x7f070013
 			public const int showTitle = 2131165203;
 			
-			// aapt resource value: 0x7f07009b
-			public const int sliding_tabs = 2131165339;
+			// aapt resource value: 0x7f07009c
+			public const int sliding_tabs = 2131165340;
 			
 			// aapt resource value: 0x7f07006d
 			public const int snackbar_action = 2131165293;
@@ -2657,8 +2660,8 @@ namespace XFPDFMerge.Droid
 			// aapt resource value: 0x7f070048
 			public const int title_template = 2131165256;
 			
-			// aapt resource value: 0x7f07009c
-			public const int toolbar = 2131165340;
+			// aapt resource value: 0x7f07009d
+			public const int toolbar = 2131165341;
 			
 			// aapt resource value: 0x7f070032
 			public const int top = 2131165234;
@@ -2922,22 +2925,25 @@ namespace XFPDFMerge.Droid
 			public const int notification_template_part_time = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public const int select_dialog_item_material = 2130903093;
+			public const int pdfInWebView = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int select_dialog_multichoice_material = 2130903094;
+			public const int select_dialog_item_material = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int select_dialog_singlechoice_material = 2130903095;
+			public const int select_dialog_multichoice_material = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int support_simple_spinner_dropdown_item = 2130903096;
+			public const int select_dialog_singlechoice_material = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int Tabbar = 2130903097;
+			public const int support_simple_spinner_dropdown_item = 2130903097;
 			
 			// aapt resource value: 0x7f03003a
-			public const int Toolbar = 2130903098;
+			public const int Tabbar = 2130903098;
+			
+			// aapt resource value: 0x7f03003b
+			public const int Toolbar = 2130903099;
 			
 			static Layout()
 			{
