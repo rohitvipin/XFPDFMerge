@@ -27,9 +27,14 @@ namespace XFPDFMerge.ViewModels
             Files.CollectionChanged += (sender, args) => OnPropertyChanged(nameof(IsFilesAvailableToMerge));
         }
 
-        private Task MergeFilesCommandHandler()
+        private async Task MergeFilesCommandHandler()
         {
-            throw new System.NotImplementedException();
+            var mergedFile = await _pdfService?.MergeFiles(Files);
+
+            if (mergedFile != null)
+            {
+                Files.Add(mergedFile);
+            }
         }
 
         private async Task PickFilesCommandHandler()

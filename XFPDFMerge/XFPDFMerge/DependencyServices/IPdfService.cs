@@ -8,6 +8,6 @@ namespace XFPDFMerge.DependencyServices
     {
         Task DisplayFile(FileEntity fileEntity);
 
-        FileEntity MergeFiles(IList<FileEntity> pdfFiles);
+        Task<FileEntity> MergeFiles(IList<FileEntity> pdfFiles);
     }
 }

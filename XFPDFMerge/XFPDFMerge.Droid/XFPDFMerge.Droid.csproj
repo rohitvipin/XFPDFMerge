@@ -115,6 +115,12 @@
       <HintPath>..\..\packages\Xamarin.Forms.2.3.3.175\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="iTextSharpLGPL-MonoForAndroid">
+      <HintPath>..\..\packages\Xam.iTextSharpLGPL.0.1.0\lib\MonoAndroid10\iTextSharpLGPL-MonoForAndroid.dll</HintPath>
+    </Reference>
+    <Reference Include="XamiTextSharpLGPL.Droid">
+      <HintPath>..\..\packages\Xam.iTextSharpLGPL.0.1.0\lib\MonoAndroid10\XamiTextSharpLGPL.Droid.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\PdfWebViewActivity.cs" />
@@ -431,7 +437,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XFPDFMerge\XFPDFMerge.csproj">
-      <Project>{fa88336f-3a4e-4651-acb7-15c252696982}</Project>
+      <Project>{46EEB5BC-67B3-4A48-B2E8-68B1CBC15089}</Project>
       <Name>XFPDFMerge</Name>
     </ProjectReference>
   </ItemGroup>
